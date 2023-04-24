@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>JADWAL SHOLAT INDONESIA</title>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+<script src="PrayTimes.js"></script>
+<script src="DataTP.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Arimo|Oswald" rel="stylesheet"> 
+
+<style>
+
+body {
+	font-family: 'Arimo', 'Oswald', Arial , sans-serif;
+	font-size: 15px;
+	color: #000;
+	word-wrap: break-word;
+	line-height: 1.2;
+	background :#fff;
+}
+
+div#jdw-sholat {
+	margin:0;
+	padding:10px 0;
+	min-height: 250px;
+	min-width:250px;
+}
+
+div#jdw-sholat-container{
+	width: 90%;
+	height: 300px;
+	padding: 5px;
+	margin: 5px auto;
+}
+
+.blank_row {height: 5px ; }
+
+#table-jdw-sholat {margin:10px auto 0 auto; border: none;  outline:none;}
+
+#timetable {min-width:65%;width:auto;margin:0 auto;border: none; outline:none;}
+
+#timetable tr {padding: 5px 0}
+
+#timetable td {min-width:20px;width:auto;padding: 5px 0;border: none;}
+
+#timetable th {text-align:center;padding:0;border:none;font-weight: normal;background: none;}
+
+select {
+  background: transparent;
+  width: 250px;
+  border: 0;
+  border-radius: 0;
+  text-transform: uppercase;
+  color: #C00;
+  vertical-align: middle;
+  height: 26px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.styleSelect {
+	margin: 5px auto;
+	width: 200px;
+    overflow: hidden;
+	border: 1px solid #ccc;
+}
+
+.toptable{
+	width: 250px;
+	margin: 0 auto;
+	font-family: 'Oswald', 'Arimo', Arial, sans-serif;
+	font-size:22px;
+}
+
+option {
+	border: 0;
+	color: #111;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="jdw-sholat-container">
+	
+    <div class="toptable"></div>
+		
+        <div class="styleSelect">
+            
+            <form action="" method="post" name="form1" id="form1">
+            <select id="pilihan_kota" onchange="widget_jadwal_sholat()">
+            <option value="1">Abepura</option>
+            <option value="2">Ambarawa</option>
+            <option value="3">Ambon</option>
+            <option value="4">Atambua</option>
+            <option value="5">Babat</option>
+            <option value="6">Balikpapan</option>
+            <option value="7">Banda Aceh</option>
+            <option value="8">Bandar Lampung</option>
+            <option value="9">Bandung</option>
+            <option value="10">Bangkalan</option>
+            <option value="11">Banjarmasin</option>
+            <option value="12">Bantul</option>
+            <option value="13">Banyumas</option>
+            <option value="14">Banyuwangi</option>
+            <option value="15">Batam</option>
+            <option value="16">Bekasi</option>
+            <option value="17">Bengkulu</option>
+            <option value="18">Biak</option>
+            <option value="19">Bima</option>
+            <option value="20">Binjai</option>
+            <option value="21">Bireun</option>
+            <option value="22">Blitar</option>
+            <option value="23">Blora</option>
+            <option value="24">Bogor</option>
+            <option value="25">Bojonegoro</option>
+            <option value="26">Bojong Gede</option>
+            <option value="27">Bondowoso</option>
+            <option value="28">Bone</option>
+            <option value="29">Bontang</option>
+            <option value="30">Boyolali</option>
+            <option value="31">Brebes</option>
+            <option value="32">Buaran</option>
+            <option value="33">Bukit Tinggi</option>
+            <option value="34">Bumiayu</option>
+            <option value="35">Cepu</option>
+            <option value="36">Cianjur</option>
+            <option value="37">Cikarang</option>
+            <option value="38">Cilacap</option>
+            <option value="39">Cilegon</option>
+            <option value="40">Cirebon</option>
+            <option value="41">Demak</option>
+            <option value="42">Denpasar</option>
+            <option value="43">Depok</option>
+            <option value="44">Dumai</option>
+            <option value="45">Ende</option>
+            <option value="46">Garut</option>
+            <option value="47">Gombong</option>
+            <option value="48">Gorontalo</option>
+            <option value="49">Gresik</option>
+            <option value="50">Indramayu</option>
+            <option value="51" selected="">Jakarta</option>
+            <option value="52">Jambi</option>
+            <option value="53">Jayapura</option>
+            <option value="54">Jember</option>
+            <option value="55">Jepara</option>
+            <option value="56">Karangasem</option>
+            <option value="57">Kebumen</option>
+            <option value="58">Kediri</option>
+            <option value="59">Kendari</option>
+            <option value="60">Klaten</option>
+            <option value="61">Kualakapuas</option>
+            <option value="62">Kuala Simpang</option>
+            <option value="63">Kudus</option>
+            <option value="64">Kuta</option>
+            <option value="65">Lamongan</option>
+            <option value="66">Langsa</option>
+            <option value="67">Lhokseumawe</option>
+            <option value="68">Lubuk Linggau</option>
+            <option value="69">Lumajang</option>
+            <option value="70">Madiun</option>
+            <option value="71">Magelang</option>
+            <option value="72">Magetan</option>
+            <option value="73">Majalengka</option>
+            <option value="74">Makassar</option>
+            <option value="75">Malang</option>
+            <option value="76">Manado</option>
+            <option value="77">Manokwari</option>
+            <option value="78">Martapura</option>
+            <option value="79">Mataram</option>
+            <option value="80">Maumere</option>
+            <option value="81">Medan</option>
+            <option value="82">Merauke</option>
+            <option value="83">Meulaboh</option>
+            <option value="84">Mojokerto</option>
+            <option value="85">Nabire</option>
+            <option value="86">Nganjuk</option>
+            <option value="87">Padang</option>
+            <option value="88">Palangka Raya</option>
+            <option value="89">Palembang</option>
+            <option value="90">Palu</option>
+            <option value="91">Pamekasan</option>
+            <option value="92">Pandaan</option>
+            <option value="93">Pangkal Pinang</option>
+            <option value="94">Pasuruan</option>
+            <option value="95">Pekanbaru</option>
+            <option value="96">Pematang Siantar</option>
+            <option value="97">Polewali</option>
+            <option value="98">Ponorogo</option>
+            <option value="99">Pontianak</option>
+            <option value="100">Poso</option>
+            <option value="101">Prigen</option>
+            <option value="102">Probolinggo</option>
+            <option value="103">Sabang</option>
+            <option value="104">Samarinda</option>
+            <option value="105">Sampang</option>
+            <option value="106">Sampit</option>
+            <option value="107">Semarang</option>
+            <option value="108">Serang</option>
+            <option value="109">Sibolga</option>
+            <option value="110">Sigli</option>
+            <option value="111">Singkawang</option>
+            <option value="112">Situbondo</option>
+            <option value="113">Surabaya</option>
+            <option value="114">Surakarta</option>
+            <option value="115">Tabanan</option>
+            <option value="116">Tangerang</option>
+            <option value="117">Tarakan</option>
+            <option value="118">Tasikmalaya</option>
+            <option value="119">Ternate</option>
+            <option value="120">Tidore</option>
+            <option value="121">Trenggalek</option>
+            <option value="122">Tuban</option>
+            <option value="123">Ubud</option>
+            <option value="124">Ungaran</option>
+            <option value="125">Waingapu</option>
+            <option value="126">Wonosobo</option>
+            <option value="127">Yogyakarta</option>
+            </select>
+            </form>
+		</div>
+ 
+<div id="table-jdw-sholat"></div>
+
+<script type="text/javascript">
+	window.onload=function(){widget_jadwal_sholat()};
+</script>
+
+</div>
+</body>
+</html>
